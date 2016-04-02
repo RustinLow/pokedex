@@ -17,6 +17,8 @@
 		6C5B35511CAB2416004E9684 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6C5B35501CAB2416004E9684 /* pokemon.csv */; };
 		6C5B35561CAB2753004E9684 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5B35551CAB2753004E9684 /* Pokemon.swift */; };
 		6CDD6B661CACA14B0092E1BB /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD6B651CACA14B0092E1BB /* csv.swift */; };
+		6CDD6B6A1CB05F040092E1BB /* PokemonSolid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDD6B691CB05F040092E1BB /* PokemonSolid.ttf */; };
+		6CDD6B6C1CB062A40092E1BB /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6CDD6B6B1CB062A40092E1BB /* music.mp3 */; };
 		6CEA30DF1CAC6015004046EF /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA30DE1CAC6015004046EF /* PokeCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		6C5B35501CAB2416004E9684 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		6C5B35551CAB2753004E9684 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		6CDD6B651CACA14B0092E1BB /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
+		6CDD6B691CB05F040092E1BB /* PokemonSolid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokemonSolid.ttf; sourceTree = "<group>"; };
+		6CDD6B6B1CB062A40092E1BB /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		6CEA30DE1CAC6015004046EF /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +176,8 @@
 		6CDD6B681CACA1A00092E1BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6CDD6B6B1CB062A40092E1BB /* music.mp3 */,
+				6CDD6B691CB05F040092E1BB /* PokemonSolid.ttf */,
 				6C5B35501CAB2416004E9684 /* pokemon.csv */,
 			);
 			name = Resources;
@@ -283,7 +289,9 @@
 			files = (
 				6C5B352D1CAB1F4F004E9684 /* LaunchScreen.storyboard in Resources */,
 				6C5B352A1CAB1F4F004E9684 /* Assets.xcassets in Resources */,
+				6CDD6B6C1CB062A40092E1BB /* music.mp3 in Resources */,
 				6C5B35511CAB2416004E9684 /* pokemon.csv in Resources */,
+				6CDD6B6A1CB05F040092E1BB /* PokemonSolid.ttf in Resources */,
 				6C5B35281CAB1F4F004E9684 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
