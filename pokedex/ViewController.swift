@@ -32,14 +32,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         parsePokemonCSV()
         //searchbar formatting
         searchBar.returnKeyType = UIReturnKeyType.Done
-        //keyboard dismissal whilst editing
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
+ 
     
     func initAudio() {
         let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
@@ -97,7 +93,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        var poke: Pokemon!
+        if inSearchMode {
+            poke = filteredPokemon[indexPath.row]
+        } else {
+            poke = pokemon[indexPath.row]
+        }
+        performSegueWithIdentifier("PokemonDetailVC", sender: poke)
+    
     }
     
     
@@ -131,6 +134,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
 //search bar functions
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         dismissKeyboard()
     }
@@ -145,6 +152,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let lower = searchBar.text!.lowercaseString
             filteredPokemon = pokemon.filter({$0.name.rangeOfString(lower) != nil})
             collection.reloadData()
+        }
+    }
+    
+//segue funcs
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PokemonDetailVC" {
+            if let detailsVC = segue.destinationViewController as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke
+                }
+            }
+            
         }
     }
 
