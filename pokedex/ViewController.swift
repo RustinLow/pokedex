@@ -23,13 +23,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //delegates
         collection.delegate = self
         collection.dataSource = self
         searchBar.delegate = self
+        //inits
         initAudio()
         parsePokemonCSV()
+        //searchbar formatting
+        searchBar.returnKeyType = UIReturnKeyType.Done
+        //keyboard dismissal whilst editing
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     func initAudio() {
         let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")!
@@ -120,9 +130,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+//search bar functions
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        dismissKeyboard()
+    }
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false
+            dismissKeyboard()
+            collection.reloadData()
         } else {
             inSearchMode = true
             let lower = searchBar.text!.lowercaseString
