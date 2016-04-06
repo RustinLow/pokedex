@@ -14,6 +14,17 @@ class PokemonDetailVC: UIViewController {
     var pokemon: Pokemon!
     
     @IBOutlet weak var pokemonNameLbL: UILabel!
+    @IBOutlet weak var mainImg: UIImageView!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var defenseLbl: UILabel!
+    @IBOutlet weak var heightLbl: UILabel!
+    @IBOutlet weak var pokedexIdLbl: UILabel!
+    @IBOutlet weak var weightLbl: UILabel!
+    @IBOutlet weak var baseAttackLbl: UILabel!
+    @IBOutlet weak var currentEvoImg: UIImageView!
+    @IBOutlet weak var nextEvoImg: UIImageView!
+    @IBOutlet weak var evoTxt: UILabel!
     
     
     override func viewDidLoad() {
@@ -22,6 +33,9 @@ class PokemonDetailVC: UIViewController {
        
     }
 
+    @IBAction func backBtnPressed(sender: UIButton) {
+      dismissViewControllerAnimated(true, completion: nil)
+    }
     
 
 }
