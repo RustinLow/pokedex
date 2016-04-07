@@ -364,7 +364,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="backBtnPressed:" destination="sOc-zW-dOu" eventType="touchUpInside" id="fXm-pr-vjB"/>
+                                            <action selector="backBtnPressed:" destination="sOc-zW-dOu" eventType="touchUpInside" id="tUE-tc-cNF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -402,7 +402,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="backBtnPressed" destination="Op9-dR-A0g" id="02d-f0-bfY"/>
                         <outlet property="baseAttackLbl" destination="dPI-ng-IMz" id="to3-Ye-HgM"/>
                         <outlet property="currentEvoImg" destination="8y7-9j-0kj" id="cFk-P1-wDA"/>
                         <outlet property="defenseLbl" destination="ma5-1N-wqh" id="app-xN-V6f"/>
