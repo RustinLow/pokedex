@@ -22,7 +22,7 @@ class Pokemon {
     private var _nextEvoTxt: String!
     private var _pokemonURL: String!
     
-//    
+    
 //    var nextEvoTxt: String {
 //        return _nextEvoTxt
 //    }
@@ -68,12 +68,45 @@ class Pokemon {
     func downloadPokemonDetails(completed: DownloadComplete) {
         
         let url = NSURL(string: _pokemonURL)!
-        Alamofire.request(.GET, url).responseJSON { (response ) -> Void in
-            print(response.result)
+        Alamofire.request(.GET, url).responseJSON { (response) -> Void in
             
-            if let JSON = response.result.value {
+            if let dict = response.result.value as? Dictionary<String, AnyObject> {
+                if let weight = dict["weight"] as? String {
+                    self._weight = weight
+                }
+                if let height = dict["height"] as? String {
+                    self._height = height
+                }
+                if let attack = dict["attack"] as? Int {
+                    self._attack = "\(attack)"
+                }
+                if let defense = dict["defense"] as? Int {
+                    self._defense = "\(defense)"
+                }
                 
-                print("JSON: \(JSON)")
+                if let types = dict["types"] as? [Dictionary<String, String>] where types.count > 0 {
+                    if let name = types[0] ["name"] {
+                        self._type = name.capitalizedString
+                    }
+                    
+                    if types.count > 1 {
+                        for x in 1 ..< types.count {
+                            if let name = types[x] ["name"] {
+                                self._type! += "/\(name.capitalizedString)"
+                            }
+                        }
+                    }
+                } else {
+                    self._type = ""
+                }
+                if let descArr = dict["description"] as? Dictionary<String, String> where descArr.count > 0 {
+                    
+                    if let url = descArr[0]["resource_uri"]{
+                        
+                    }
+                } else {
+                    self._description = ""
+                }
             }
         }
     }

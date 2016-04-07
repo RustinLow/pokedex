@@ -33,7 +33,7 @@ class PokemonDetailVC: UIViewController {
         mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
         
         pokemon.downloadPokemonDetails { 
-            //this will be called after download is done
+          
         }
        
     }
